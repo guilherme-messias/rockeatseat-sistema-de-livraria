@@ -59,4 +59,14 @@ public class Book {
         public UUID getId() {
             return id;
         }
+
+        public Book addNewBook(String title, Author author) {
+            setId(UUID.randomUUID());
+            setTitle(title);
+            setAuthor(author);
+            setAvailable(true);
+            setCreatedAt(Instant.now());
+            setUpdatedAt(Instant.now());
+            return this;
+        }
 }
