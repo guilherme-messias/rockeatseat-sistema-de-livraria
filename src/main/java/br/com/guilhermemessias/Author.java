@@ -12,7 +12,7 @@ public class Author {
         return id;
     }
 
-    public void setId(UUID id) {
+    private void setId(UUID id) {
         this.id = id;
     }
 
@@ -30,5 +30,12 @@ public class Author {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Author addNewAuthor(String name, LocalDate birthDate) {
+        setId(UUID.randomUUID());
+        setName(name);
+        setBirthDate(birthDate);
+        return this;
     }
 }

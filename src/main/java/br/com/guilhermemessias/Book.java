@@ -12,7 +12,7 @@ public class Book {
         private Instant updatedAt;
 
 
-        public void setId(UUID id) {
+        private void setId(UUID id) {
             this.id = id;
         }
 
