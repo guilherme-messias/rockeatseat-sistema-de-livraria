@@ -11,6 +11,14 @@ public class Book {
         private Instant createdAt;
         private Instant updatedAt;
 
+        public Book(String title, Author author, boolean available) {
+            this.id = java.util.UUID.randomUUID();
+            this.title = title;
+            this.author = author;
+            this.available = available;
+            this.createdAt = Instant.now();
+            this.updatedAt = Instant.now();
+        }
 
         private void setId(UUID id) {
             this.id = id;
@@ -58,15 +66,5 @@ public class Book {
 
         public UUID getId() {
             return id;
-        }
-
-        public Book addNewBook(String title, Author author) {
-            setId(UUID.randomUUID());
-            setTitle(title);
-            setAuthor(author);
-            setAvailable(true);
-            setCreatedAt(Instant.now());
-            setUpdatedAt(Instant.now());
-            return this;
         }
 }

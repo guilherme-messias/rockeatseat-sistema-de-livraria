@@ -8,6 +8,12 @@ public class Author {
     private String name;
     private LocalDate birthDate;
 
+    public Author(String name, LocalDate birthDate) {
+        this.id = java.util.UUID.randomUUID();
+        this.name = name;
+        this.birthDate = birthDate;
+    }
+
     public UUID getId() {
         return id;
     }
@@ -30,12 +36,5 @@ public class Author {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Author addNewAuthor(String name, LocalDate birthDate) {
-        setId(UUID.randomUUID());
-        setName(name);
-        setBirthDate(birthDate);
-        return this;
     }
 }
