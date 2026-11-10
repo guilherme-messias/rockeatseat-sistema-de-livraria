@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         Library library = new Library();
 
         Author machado = new Author("Machado de Assis", LocalDate.of(1839, 6, 21));
@@ -35,35 +33,7 @@ public class Main {
         books.add(revolucaoDosBichos);
         library.setBooks(books);
 
-        int option;
-
-        do {
-            System.out.println("Deseja visualizar os livros disponíveis?");
-            System.out.println("1 - Sim");
-            System.out.println("2 - Não");
-
-            option = scanner.nextInt();
-
-            if (option == 1) {
-                System.out.println("Livros disponíveis:");
-
-                for (Book book : library.getBooks()) {
-                    if (book.isAvailable()) {
-                        System.out.printf(
-                                "Título: %s, Autor: %s%n",
-                                book.getTitle(),
-                                book.getAuthor().getName()
-                        );
-                    }
-                }
-            } else if (option == 2) {
-                System.out.println("Saindo do sistema...");
-            } else {
-                System.out.println("Opção inválida. Tente novamente.");
-            }
-
-        } while (option != 2);
-
-        scanner.close();
+        Menu menu = new Menu();
+        menu.displayMenu(library);
     }
 }
