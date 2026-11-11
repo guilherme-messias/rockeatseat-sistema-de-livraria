@@ -18,18 +18,7 @@ public class Menu {
             switch (option) {
 
                 case 1: {
-                    System.out.println("Livros disponíveis:");
-
-                    for (Book book : library.getBooks()) {
-                        if (book.isAvailable()) {
-                            System.out.printf(
-                                    "Id: %s, Título: %s, Autor: %s%n",
-                                    book.getId(),
-                                    book.getTitle(),
-                                    book.getAuthor().getName()
-                            );
-                        }
-                    }
+                    avaliableBooks(library);
                     displayLoanMenu(library, scanner);
                     break;
                 }
@@ -111,16 +100,7 @@ public class Menu {
                     break;
                 }
                 case 3: {
-                    System.out.println("Livros emprestados:");
-
-                    for (Loan loan : library.getLoans()) {
-                        System.out.printf(
-                                "Id: %s, Título: %s, Autor: %s%n",
-                                loan.getBook().getId(),
-                                loan.getBook().getTitle(),
-                                loan.getBook().getAuthor().getName()
-                        );
-                    }
+                    loanedBooks(library);
                     break;
                 }
                 case 4: {
@@ -134,5 +114,33 @@ public class Menu {
 
         } while (option != 4);
 
+    }
+
+    private static void avaliableBooks(Library library) {
+        System.out.println("Livros disponíveis:");
+
+        for (Book book : library.getBooks()) {
+            if (book.isAvailable()) {
+                System.out.printf(
+                        "Id: %s, Título: %s, Autor: %s%n",
+                        book.getId(),
+                        book.getTitle(),
+                        book.getAuthor().getName()
+                );
+            }
+        }
+    }
+
+    private static void loanedBooks(Library library) {
+        System.out.println("Livros emprestados:");
+
+        for (Loan loan : library.getLoans()) {
+            System.out.printf(
+                    "Id: %s, Título: %s, Autor: %s%n",
+                    loan.getBook().getId(),
+                    loan.getBook().getTitle(),
+                    loan.getBook().getAuthor().getName()
+            );
+        }
     }
 }
