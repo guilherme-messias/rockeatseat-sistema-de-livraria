@@ -72,7 +72,7 @@ public class Menu {
                         if (book.getId().equals(bookId)) {
                             if (book.isAvailable()) {
                                 System.out.println("Informe o nome do cliente:");
-                                String clientName = scanner.next();
+                                String clientName = scanner.nextLine();
 
                                 Loan loan = new Loan();
                                 loan.setBook(book);
@@ -96,7 +96,7 @@ public class Menu {
                     System.out.println("Devolver Empréstimo:");
                     System.out.println("Informe o id do livro que deseja devolver:");
 
-                    String bookIdInput = scanner.next();
+                    String bookIdInput = scanner.nextLine();
                     UUID bookId = UUID.fromString(bookIdInput);
 
                     for (Loan loan : library.getLoans()) {
