@@ -21,10 +21,10 @@ public class Library {
         this.setAuthors(authors);
 
         Book domCasmurro = new Book("Dom Casmurro", machado, true);
-        Book memoriasPostumas = new Book("Memórias Póstumas de Brás Cubas", machado, false);
+        Book memoriasPostumas = new Book("Memórias Póstumas de Brás Cubas", machado, true);
         Book horaDaEstrela = new Book("A Hora da Estrela", clarice, true);
         Book livro1984 = new Book("1984", george, true);
-        Book revolucaoDosBichos = new Book("A Revolução dos Bichos", george, false);
+        Book revolucaoDosBichos = new Book("A Revolução dos Bichos", george, true);
 
         List<Book> books = new ArrayList<>();
         books.add(domCasmurro);
@@ -39,7 +39,7 @@ public class Library {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    private void setBooks(List<Book> books) {
         this.books = books;
     }
 
@@ -47,7 +47,7 @@ public class Library {
         return loans;
     }
 
-    public void setLoans(List<Loan> loans) {
+    private void setLoans(List<Loan> loans) {
         this.loans = loans;
     }
 
@@ -55,7 +55,7 @@ public class Library {
         return authors;
     }
 
-    public void setAuthors(List<Author> authors) {
+    private void setAuthors(List<Author> authors) {
         this.authors = authors;
     }
 }
